@@ -17,7 +17,6 @@ class App extends Component {
     isAuthenticating: true,
     user: null,
     premierLeagueInfo: {},
-    myLeaguesInfo: [],
     gotUser: false
   }
 
@@ -41,12 +40,6 @@ class App extends Component {
     .then(response => {
         this.setState({premierLeagueInfo: response})
     })
-    if (this.state.user !== null){
-      axios.post('https://8yo67af9d5.execute-api.eu-west-1.amazonaws.com/dev/myLeagues', {sub: this.state.user['attributes']['sub']})
-      .then(response => {
-          this.setState({myLeaguesInfo: response["data"]})
-      }
-    )}
   }
   setIsLoggedIn = async => {
     this.setAuthStatus(true);
@@ -81,7 +74,7 @@ class App extends Component {
                 <h1>My Profile</h1>
               </Route>
               <Route path="/MyLeagues">
-                <Leagues user={authProps.user} myLeaguesInfo = {this.state.myLeaguesInfo} results={this.state.premierLeagueInfo}/>
+                <Leagues user={authProps.user} results={this.state.premierLeagueInfo}/>
               </Route>
               <Route path="/ForgotPassword">
                 <ForgotPassword/>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CreateLeagues from './createLeagues';
 import JoinLeagues from './joinLeagues';
 import Button from '@material-ui/core/Button';
@@ -15,12 +15,21 @@ export default function Leagues(props) {
     const [createLeague, setCreateLeague] = useState(false);
     const [joinLeague, setJoinLeague] = useState(false);
 	const [individualLeague, setIndividualLeague] = useState(false);
-    const [leagueInfo, setLeagueInfo] = useState();
+	const [leagueInfo, setLeagueInfo] = useState();
+	const [myLeaguesInfo, setMyLeaguesInfo] = useState();
+
+    useEffect(() => {
+		if (props.user !== null) {
+			axios.post('https://8yo67af9d5.execute-api.eu-west-1.amazonaws.com/dev/myLeagues', {sub: props.user['attributes']['sub']})
+			.then(response => {
+				setMyLeaguesInfo(response["data"])
+		}
+    )}}, [props.user])
 
     const displayLeague = () => {
-        if (typeof props.myLeaguesInfo !== 'undefined'){
+        if (typeof myLeaguesInfo !== 'undefined'){
             return (
-                <LeagueTable table={props.myLeaguesInfo} openLeague={openLeague}/>
+                <LeagueTable table={myLeaguesInfo} openLeague={openLeague}/>
             )
         }
     }
