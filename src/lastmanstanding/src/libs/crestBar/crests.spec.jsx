@@ -28,4 +28,12 @@ describe('crestBar', () => {
       expect(component).toMatchSnapshot();
     });
   });
+  describe('crests', () => {
+    it('redirects to logo page', async () => {
+      const component = shallow(
+          <Crests {...props}/>,
+      );
+      expect(component.find('a').at(0).prop('href')).toBe('https://www.arsenal.com/');
+    });
+  });
 });
