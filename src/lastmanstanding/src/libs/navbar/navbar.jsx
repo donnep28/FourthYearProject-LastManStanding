@@ -13,6 +13,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import {Auth} from 'aws-amplify';
 import {useHistory, Link} from 'react-router-dom';
+import alertify from 'alertifyjs';
 
 function TabPanel(props) {
   const {children, value, index, ...other} = props;
@@ -121,7 +122,7 @@ const Navbar = ({
             <Tab label={<div><img src={require('../../images/logo4.png')} className={classes.logo} alt='logo' textcolor='inherit'></img></div>} className={classes.tabs} component={Link} to='/'/>
             <Tab label={<div><AccountCircleIcon style={{verticalAlign: 'middle', paddingBottom: '4px'}}/> My Profile </div>} className={classes.tabs} component={Link} to='/Profile' />
             <Tab label={<div><ListAltIcon style={{verticalAlign: 'middle', paddingBottom: '4px'}}/> My Leagues </div>} className={classes.tabs} component={Link} to='/MyLeagues' />
-            <Tab label={<div><ExitToAppIcon style={{verticalAlign: 'middle', paddingBottom: '4px'}}/> Sign Out </div>} className={classes.signOutTab} onClick={(event) => handleLogOut(event)} />
+            <Tab label={<div><ExitToAppIcon style={{verticalAlign: 'middle', paddingBottom: '4px'}}/> Sign Out </div>} className={classes.signOutTab} onClick={() => {if (alertify.confirm('Attention!','Are you sure you want to sign out?',function(){handleLogOut()}, function(){}));}}/>
           </Tabs>
         </AppBar>
           ) : (
@@ -130,7 +131,7 @@ const Navbar = ({
             <Tab label={<img src={require('../../images/logo4.png')} className={classes.logo} alt='logo' textcolor='inherit'></img>} className={classes.tabs} component={Link} to='/'/>
             <Tab label={<AccountCircleIcon style={{verticalAlign: 'middle', paddingBottom: '4px'}}/>} component={Link} to='/Profile' />
             <Tab label={<ListAltIcon style={{verticalAlign: 'middle', paddingBottom: '4px'}}/>} component={Link} to='/MyLeagues' />
-            <Tab label={<ExitToAppIcon style={{verticalAlign: 'middle', paddingBottom: '4px'}}/>} onClick={(event) => handleLogOut(event)} />
+            <Tab label={<ExitToAppIcon style={{verticalAlign: 'middle', paddingBottom: '4px'}}/>} onClick={() => {if (alertify.confirm('Attention!','Are you sure you want to sign out?',function(){handleLogOut()}, function(){}));}} />
           </Tabs>
         </AppBar>
         )}

@@ -325,7 +325,7 @@ exports[`premierLeagueResults Snapshot renders 1`] = `
       <h1
         className="h1"
       >
-        Results
+        Previous Gameweek Results
       </h1>
       <WithStyles(ForwardRef(Table))
         aria-label="customized table"

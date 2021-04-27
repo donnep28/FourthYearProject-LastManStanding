@@ -15,7 +15,7 @@ function getFixtures(results) {
     return (
       <>
         <TableContainer component={Paper} className='tableContainer'>
-          <h1 className='h1'>Fixtures</h1>
+          <h1 className='h1'>Next Gameweek Fixtures</h1>
           <Table aria-label="customized table" className="table">
             <TableHead>
               <TableRow className="tableRowTitles">

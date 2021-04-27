@@ -324,7 +324,7 @@ exports[`premierLeagueFixtures Snapshot renders 1`] = `
     <h1
       className="h1"
     >
-      Fixtures
+      Next Gameweek Fixtures
     </h1>
     <WithStyles(ForwardRef(Table))
       aria-label="customized table"

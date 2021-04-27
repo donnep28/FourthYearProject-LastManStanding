@@ -14,7 +14,7 @@ const getStandings = (results) => {
     return (
       <div>
         <TableContainer component={Paper} className='tableContainer'>
-          <h1 className='h1'>Standings</h1>
+          <h1 className='h1'>Premier League Standings</h1>
           <Table aria-label="simple table" className="table">
             <TableHead>
               <TableRow className="tableRowTitles">

@@ -15,7 +15,7 @@ function getResults(results) {
     return (
       <div>
         <TableContainer component={Paper} className='tableContainer'>
-          <h1 className='h1'>Results</h1>
+          <h1 className='h1'>Previous Gameweek Results</h1>
           <Table aria-label='customized table' className="table">
             <TableHead>
               <TableRow className='tableRowTitles'>

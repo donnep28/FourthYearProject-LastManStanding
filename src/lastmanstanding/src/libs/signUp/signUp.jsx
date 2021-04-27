@@ -8,7 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Auth} from 'aws-amplify';
-import {useHistory, Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 import alertify from 'alertifyjs';
 
 const useStyles = makeStyles((theme) => ({
@@ -88,6 +89,7 @@ const SignUp = () => {
                 onChange= {(event) =>
                   setUsername(event.target.value.toLowerCase())
                 }
+                inputProps={{'data-testid': 'username'}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -102,6 +104,7 @@ const SignUp = () => {
                 onChange= {(event) =>
                   setEmail(event.target.value.toLowerCase())
                 }
+                inputProps={{'data-testid': 'email'}}
               />
             </Grid>
             <Grid item xs={12}>
@@ -115,6 +118,7 @@ const SignUp = () => {
                 id="password"
                 autoComplete="current-password"
                 onChange= {(event) => setPassword(event.target.value)}
+                inputProps={{'data-testid': 'password'}}
               />
             </Grid>
           </Grid>
@@ -130,8 +134,8 @@ const SignUp = () => {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link onClick={(event) => getBack()} >
-                Already have an account? Sign in
+              <Link onClick={(event) => getBack()} style={{color: "blue", cursor: "pointer"}}>
+                <p>Already have an account? Sign in</p>
               </Link>
             </Grid>
           </Grid>
